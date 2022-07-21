@@ -27,7 +27,7 @@ class Login extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 150.h,
+                      height: 140.h,
                     ),
                     const Text(
                       'Daily Task',

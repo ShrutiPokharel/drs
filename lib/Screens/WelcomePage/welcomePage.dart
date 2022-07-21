@@ -1,6 +1,7 @@
 import 'package:drs/Constant.dart';
 import 'package:drs/Screens/welcomePage/projectNameList.dart';
 import 'package:drs/components/task.dart';
+import 'package:drs/tabSelector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,26 +15,13 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: background,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Task(tasktitle: 'Video Manager file server', projecttitle: 'EZSales'), Task(tasktitle: 'Video Manager screenshot', projecttitle: 'EZSales')
+          TabSelect(),
+          Task(tasktitle: 'Video Manager file server', projecttitle: 'EZSales'),
+          Task(tasktitle: 'Video Manager screenshot', projecttitle: 'EZSales')
         ],
       ),
-
-      // body: Column(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   crossAxisAlignment: CrossAxisAlignment.start,
-      //   children: [
-      //     Text(
-      //       'Projects',
-      //       style: TextStyle(
-      //         fontFamily: 'Poppins',
-      //         fontSize: 26.sp,
-      //         fontWeight: FontWeight.w800,
-      //       ),
-      //     ),
-      //     ProjectName(),
-      //   ],
-      // ),
       bottomNavigationBar:
           BottomNavigationBar(showSelectedLabels: false, items: [
         BottomNavigationBarItem(
@@ -84,3 +72,4 @@ class WelcomePage extends StatelessWidget {
     );
   }
 }
+
