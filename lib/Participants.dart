@@ -45,18 +45,22 @@ class _ParticipantsState extends State<Participants> {
     List<Widget> comps = [];
 
     for (int i = 0; i < participants.length; i++) {
-      comps.add(Positioned(
+      comps.add(
+        Positioned(
           top: 0,
           left: i * 30,
           child: SingleParticipant(
             onTap: () {
               print(i);
             },
-            profilePicture: profileBase + participants[i],
-          )));
+            profilePicture: profileBase + participants[i],  
+          ),
+        ),
+      );
     }
 
-    comps.add(Positioned(
+    comps.add(
+      Positioned(
         top: 0,
         left: participants.length * 30,
         child: SingleParticipant(
@@ -65,7 +69,9 @@ class _ParticipantsState extends State<Participants> {
                 participants.add(participants[0]);
               });
             },
-            profilePicture: " ")));
+            profilePicture: " "),
+      ),
+    );
     // participants.add(profileBase + 'profile1.jpg');
     return comps;
   }

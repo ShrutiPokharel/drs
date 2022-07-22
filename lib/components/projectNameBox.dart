@@ -6,7 +6,12 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProjectNameBox extends StatelessWidget {
-  const ProjectNameBox({Key? key}) : super(key: key);
+  ProjectNameBox({Key? key}) : super(key: key);
+  List<String> taskProfile = [
+    'profile1.jpg',
+    'profile2.jpg',
+    'profile3.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +27,24 @@ class ProjectNameBox extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              color: Colors.white,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.r),
+                color: Colors.white,
+              ),
             ),
           ),
           Expanded(
               child: Row(
             children: [
               SingleParticipant(
-                  profilePicture: 'assets/profile/profile1.jpg', onTap: () {})
+                profilePicture: 'assets/profile/profile1.jpg',
+                onTap: () {},
+                profileRadius: 13.r,
+                outline: true,
+                proLength: 3,
+              ),
             ],
-          ))
+          )),
         ],
       ),
     );
