@@ -7,6 +7,7 @@ const Color primarycolor = Color(0xFFEF9183);
 const Color background = Color(0xFF202635);
 const Color greycolor = Color(0xFFD9D9D9);
 const Color darkergrey = Color(0xFF384156);
+const Color navBar = Color(0xFF292F3F);
 const dynamic primarygradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,

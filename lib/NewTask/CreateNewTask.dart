@@ -62,14 +62,16 @@ class NewTask extends StatelessWidget {
                       topRight: Radius.circular(20.r)),
                 ),
                 child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
+                  padding: EdgeInsets.only(
+                    left: 24.w,
+                    right: 24.w,
+                  ),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 10.h),
+                        SizedBox(height: 30.h),
                         Calender(
                           onChanged: (val) {
                             print(val);

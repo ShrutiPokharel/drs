@@ -27,7 +27,7 @@ class _ParticipantsState extends State<Participants> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 40,
+      height: 50,
       child: Stack(
         children: getComponents(),
       ),
