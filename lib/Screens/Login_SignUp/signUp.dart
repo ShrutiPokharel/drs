@@ -36,26 +36,37 @@ class SignUp extends StatelessWidget {
                     height: 40.h,
                   ),
                   NewTextField(
-                      label1: 'Username', hint1: 'Enter your username'),
-
-                  SizedBox(
-                    height: 30.h,
+                    label1: 'Username',
+                    hint1: 'Enter your username',
+                    onChanged: (value) {},
                   ),
-                  NewTextField(label1: 'Email', hint1: 'Enter your email Id'),
-
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  NewTextField(
-                      label1: 'Password',
-                      hint1: 'Enter atleast 8-characters password'),
 
                   SizedBox(
                     height: 30.h,
                   ),
                   NewTextField(
-                      label1: 'Confirm Password',
-                      hint1: 'rewrite your password'),
+                    label1: 'Email',
+                    hint1: 'Enter your email Id',
+                    onChanged: (value) {},
+                  ),
+
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  NewTextField(
+                    label1: 'Password',
+                    hint1: 'Enter atleast 8-characters password',
+                    onChanged: (value) {},
+                  ),
+
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  NewTextField(
+                    label1: 'Confirm Password',
+                    hint1: 'rewrite your password',
+                    onChanged: (value) {},
+                  ),
 
                   // TextFieldInput(
                   //     label: 'Company', hint: "Enter your company's name"),

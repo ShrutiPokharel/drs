@@ -1,5 +1,6 @@
 import 'package:drs/Constant.dart';
 import 'package:drs/components/singleParticipant.dart';
+import 'package:drs/components/userClass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -7,7 +8,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Participants extends StatefulWidget {
-  const Participants({Key? key}) : super(key: key);
+  const Participants({Key? key, required this.onChanged, required this.users})
+      : super(key: key);
+  final Function(List<User>) onChanged;
+  final List<User> users;
 
   @override
   State<Participants> createState() => _ParticipantsState();
@@ -16,13 +20,13 @@ class Participants extends StatefulWidget {
 const profileBase = "assets/profile/";
 
 class _ParticipantsState extends State<Participants> {
-  List<String> participants = [
-    'profile1.jpg',
-    'profile2.jpg',
-    'profile3.jpg',
-    'profile4.jpg',
-    'profile5.jpg',
-  ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // widget.onChanged(participants);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -44,7 +48,7 @@ class _ParticipantsState extends State<Participants> {
     // }).toList();
     List<Widget> comps = [];
 
-    for (int i = 0; i < participants.length; i++) {
+    for (int i = 0; i < users.length; i++) {
       comps.add(
         Positioned(
           top: 0,
@@ -53,7 +57,7 @@ class _ParticipantsState extends State<Participants> {
             onTap: () {
               print(i);
             },
-            profilePicture: profileBase + participants[i],  
+            profilePicture: profileBase + users[i].profilePicture,
           ),
         ),
       );
@@ -62,11 +66,11 @@ class _ParticipantsState extends State<Participants> {
     comps.add(
       Positioned(
         top: 0,
-        left: participants.length * 30,
+        left: users.length * 30,
         child: SingleParticipant(
             onTap: () {
               setState(() {
-                participants.add(participants[0]);
+                users.add(users[0]);
               });
             },
             profilePicture: " "),

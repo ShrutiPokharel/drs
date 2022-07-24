@@ -1,17 +1,18 @@
 import 'package:drs/Constant.dart';
 import 'package:drs/NewTask/calender.dart';
-import 'package:drs/Participants.dart';
-import 'package:drs/components/appTextField.dart';
+import 'package:drs/ParticipantsWidget.dart';
 import 'package:drs/components/button.dart';
 import 'package:drs/components/newTextField.dart';
-import 'package:drs/components/singleParticipant.dart';
+import 'package:drs/components/projectClass.dart';
+import 'package:drs/components/userClass.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewTask extends StatelessWidget {
-  const NewTask({Key? key}) : super(key: key);
+  NewTask({Key? key}) : super(key: key);
+  ProjectClass newProject = ProjectClass.empty();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class NewTask extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    'Create New Task',
+                    'Create New Project',
                     style: TextStyle(
                         fontFamily: 'Mulish',
                         fontSize: 18.sp,
@@ -44,12 +45,13 @@ class NewTask extends StatelessWidget {
                         color: background),
                   ),
                   Spacer(),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.close),
-                    iconSize: 20.sp,
-                    color: Colors.transparent,
-                  ),
+                  Spacer(),
+                  // IconButton(
+                  //   onPressed: () {},
+                  //   icon: Icon(Icons.close),
+                  //   iconSize: 20.sp,
+                  //   color: Colors.transparent,
+                  // ),
                 ],
               ),
             ),
@@ -74,18 +76,32 @@ class NewTask extends StatelessWidget {
                         SizedBox(height: 30.h),
                         Calender(
                           onChanged: (val) {
-                            print(val);
+                            newProject.projectAssignedDate = val;
                           },
                         ),
                         SizedBox(
                           height: 40.h,
                         ),
                         NewTextField(
-                            label1: 'Project', hint1: 'Enter the project name'),
+                            onChanged: (value) {
+                              newProject.projectName = value;
+                            },
+                            label1: 'Project',
+                            hint1: 'Enter the project name'),
                         NewTextField(
-                            label1: 'Task', hint1: 'Enter the title of task'),
+                          label1: 'Task',
+                          hint1: 'Enter the title of task',
+                          onChanged: (value) {
+                            newProject.projectTaskTitle = value;
+                          },
+                        ),
                         NewTextField(
-                            label1: 'Description', hint1: 'Describe the task'),
+                          label1: 'Description',
+                          hint1: 'Describe the task',
+                          onChanged: (value) {
+                            newProject.projectTaskDescription = value;
+                          },
+                        ),
                         Text(
                           'Participants',
                           style: TextStyle(
@@ -97,13 +113,24 @@ class NewTask extends StatelessWidget {
                         SizedBox(
                           height: 15.h,
                         ),
-                        Participants(),
+                        Participants(
+                          onChanged: (value) {
+                            newProject.projectParticipants.clear();
+                            newProject.projectParticipants.addAll(value);
+                          },
+                          users: users,
+                        ),
                         SizedBox(
                           height: 38.h,
                         ),
                         Button(
                           buttonTitle: 'Create',
-                          onPressed: () {},
+                          onPressed: () {
+                            // newProject
+                            newProject.projectCreatedDate = DateTime.now();
+
+                            Navigator.pop(context, newProject);
+                          },
                         ),
                         SizedBox(
                           height: 100.h,

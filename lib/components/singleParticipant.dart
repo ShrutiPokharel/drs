@@ -1,5 +1,5 @@
 import 'package:drs/Constant.dart';
-import 'package:drs/Participants.dart';
+import 'package:drs/ParticipantsWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,7 +11,8 @@ class SingleParticipant extends StatelessWidget {
       required this.profilePicture,
       required this.onTap,
       this.profileRadius,
-      this.outline = false, this.proLength})
+      this.outline = false,
+      this.proLength})
       : super(key: key);
   final String profilePicture;
   final Function onTap;
@@ -27,21 +28,22 @@ class SingleParticipant extends StatelessWidget {
         child: CircleAvatar(
             backgroundColor: Colors.white,
             radius: profileRadius ?? 18.r,
-            child: profilePicture != " " 
-                ? proLength== null ?GestureDetector(
-                    onTap: () {
-                      onTap();
-                    },
-                    child: Image.asset(profilePicture)): Icon(
-                      Icons.add,
-                      color: background,
-                    )
+            child: profilePicture != " "
+                ? proLength == null
+                    ? GestureDetector(
+                        onTap: () {
+                          onTap();
+                        },
+                        child: Image.asset(profilePicture))
+                    : Icon(
+                        Icons.add,
+                        color: background,
+                      )
                 : GestureDetector(
                     onTap: () {
                       onTap();
                     },
-                    child: 
-                    Icon(
+                    child: Icon(
                       Icons.add,
                       color: background,
                     ))),

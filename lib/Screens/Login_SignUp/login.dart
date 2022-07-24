@@ -40,7 +40,11 @@ class Login extends StatelessWidget {
                     SizedBox(
                       height: 64.h,
                     ),
-                    NewTextField(label1: 'Email', hint1: 'Enter your email Id'),
+                    NewTextField(
+                      label1: 'Email',
+                      hint1: 'Enter your email Id',
+                      onChanged: (value) {},
+                    ),
                     // TextFieldInput(
                     //   label: 'Email',
                     //   hint: 'Enter your email Id',
@@ -49,6 +53,7 @@ class Login extends StatelessWidget {
                       height: 32.h,
                     ),
                     NewTextField(
+                        onChanged: (value) {},
                         label1: 'Password',
                         hint1: 'Enter atleast 8-characters password'),
                     // TextFieldInput(

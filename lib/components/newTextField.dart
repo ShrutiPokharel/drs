@@ -6,9 +6,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewTextField extends StatelessWidget {
-  NewTextField({Key? key, required this.label1, required this.hint1})
+  NewTextField({Key? key, required this.label1, required this.hint1, required this.onChanged})
       : super(key: key);
-  String label1, hint1;
+  final String label1, hint1;
+  final Function(String) onChanged;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,6 +26,9 @@ class NewTextField extends StatelessWidget {
                 fontSize: 16.sp),
           ),
           TextFormField(
+            onChanged: (value) {
+              onChanged(value);
+            },
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'Mulish',
