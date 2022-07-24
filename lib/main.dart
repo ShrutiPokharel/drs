@@ -4,6 +4,7 @@ import 'package:drs/Screens/welcomePage/welcomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:drs/Screens/Login_SignUp/login.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,16 +20,18 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       builder: (context, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          //home: Login(),
-          initialRoute: '/login',
-          routes: {
-            '/login': (context) => Login(),
-            '/signup': (context) => SignUp(),
-            '/welcome': (context) => WelcomePage(),
-            '/newtask': (context) => NewTask(),
-          },
+        return ProviderScope(
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            //home: Login(),
+            initialRoute: '/login',
+            routes: {
+              '/login': (context) => Login(),
+              '/signup': (context) => SignUp(),
+              '/welcome': (context) => WelcomePage(),
+              '/newtask': (context) => NewTask(),
+            },
+          ),
         );
       },
     );

@@ -27,7 +27,7 @@ class _WelcomePageState extends State<WelcomePage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         backgroundColor: background,
         body: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -42,6 +42,9 @@ class _WelcomePageState extends State<WelcomePage> {
                       return SizedBox(width: 10.w);
                     }),
                     itemCount: projects.length),
+              ),
+              SizedBox(
+                height: 32.h,
               ),
               Expanded(
                 flex: 2,

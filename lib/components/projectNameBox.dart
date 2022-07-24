@@ -19,7 +19,7 @@ class ProjectNameBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(18.0),
       height: 145.h,
       width: 212.w,
       decoration: BoxDecoration(
