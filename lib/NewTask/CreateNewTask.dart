@@ -90,14 +90,15 @@ class NewTask extends StatelessWidget {
                             hint1: 'Enter the project name'),
                         NewTextField(
                           label1: 'Task',
-                          hint1: 'Enter the title of task',
+                          hint1: 'Enter main task of the project',
+                          // addicon: Icons.add_circle,
                           onChanged: (value) {
                             newProject.projectTaskTitle = value;
                           },
                         ),
                         NewTextField(
                           label1: 'Description',
-                          hint1: 'Describe the task',
+                          hint1: 'Describe the project',
                           onChanged: (value) {
                             newProject.projectTaskDescription = value;
                           },

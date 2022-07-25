@@ -6,10 +6,18 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewTextField extends StatelessWidget {
-  NewTextField({Key? key, required this.label1, required this.hint1, required this.onChanged})
+  NewTextField(
+      {Key? key,
+      required this.label1,
+      required this.hint1,
+      required this.onChanged,
+      })
       : super(key: key);
   final String label1, hint1;
   final Function(String) onChanged;
+  // final IconData? addicon;
+  // final Function? iconOnTap;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,6 +44,14 @@ class NewTextField extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
             decoration: InputDecoration(
+              // suffixIcon: GestureDetector(
+              //     onTap: () {
+              //       iconOnTap!();
+              //     },
+              //     child: Icon(
+              //       addicon,
+              //       color: greycolor,
+              //     )),
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(
                   color: Color(0xFFD9D9D9),
@@ -56,7 +72,7 @@ class NewTextField extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
             ),
-          )
+          ),
         ],
       ),
     );

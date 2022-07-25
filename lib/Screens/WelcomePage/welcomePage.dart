@@ -56,7 +56,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         projecttitle: 'EZSales'),
                     Task(
                         tasktitle: 'Video Manager screenshot',
-                        projecttitle: 'EZSales')
+                        projecttitle: 'EZSales'),
                   ],
                 ),
               )
