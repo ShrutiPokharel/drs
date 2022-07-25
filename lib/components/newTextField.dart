@@ -6,15 +6,17 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewTextField extends StatelessWidget {
-  NewTextField(
-      {Key? key,
-      required this.label1,
-      required this.hint1,
-      required this.onChanged,
-      })
-      : super(key: key);
+  NewTextField({
+    Key? key,
+    required this.label1,
+    required this.hint1,
+    required this.onChanged,
+    this.validation,
+  }) : super(key: key);
   final String label1, hint1;
   final Function(String) onChanged;
+  final Function(String)? validation;
+
   // final IconData? addicon;
   // final Function? iconOnTap;
 
@@ -34,6 +36,10 @@ class NewTextField extends StatelessWidget {
                 fontSize: 16.sp),
           ),
           TextFormField(
+            validator: (value) {
+              return null;
+              //  return validation!(value!);
+            },
             onChanged: (value) {
               onChanged(value);
             },
